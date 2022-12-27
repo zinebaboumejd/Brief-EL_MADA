@@ -1,0 +1,37 @@
+{
+  bmws{
+    Brand_name
+  }
+}
+
+{
+  bmw(id:"63aac85716d002605654becc"){
+    Brand_name
+    Designation
+    IPR
+  }
+}
+
+{
+ mutation{
+  addBmw(Brand_name:"test1",IPR:"IPR test",Designation:"Designation test",Status:"Status test",Number:"Number test",Office:"Office test",Nice_classification:"Nice_classification test",Owner:"Owner test"){
+    id
+    Brand_name
+  }
+}
+
+mutation{
+  addBmw(Brand_name:"test1",IPR:"IPR test",Designation:"Designation test",Status:"Status test",Number:"Number test",Office:"Office test",Nice_classification:"Nice_classification test",Owner:"Owner test"){
+    Brand_name
+  }
+}
+
+mutation{
+  deleteBmw(id:"63aaeac60e41aaa1b25d634f"){
+    id
+    Brand_name
+  }
+  
+}
+
+
