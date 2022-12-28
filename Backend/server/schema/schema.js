@@ -83,16 +83,7 @@ const mutation = new GraphQLObjectType({
 
       },
     },
-    // Delete a BMW
-    deleteBmw: {
-      type: BmwType,
-      args: {
-        id: { type: GraphQLNonNull(GraphQLID) },
-      },
-      resolve(parent, args) {
-        return Bmw.findByIdAndDelete(args.id);
-      },
-    },
+    
     // Update a BMW
     updateBmw: {
       type: BmwType,
@@ -125,6 +116,16 @@ const mutation = new GraphQLObjectType({
       },
     },
    
+  // Delete a BMW
+  deleteBmw: {
+    type: BmwType,
+    args: {
+      id: { type: GraphQLNonNull(GraphQLID) },
+    },
+    resolve(parent, args) {
+      return Bmw.findByIdAndDelete(args.id);
+    },
+  },
   
   },
 });
