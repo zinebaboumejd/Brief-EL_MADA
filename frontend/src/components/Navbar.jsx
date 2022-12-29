@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 
 const Navbar = () => {
     let Links =[
-        {name:"HOME",link:"/HOME"},
-        // {name:"Ajoute",link:"/ajoute"},
+        {name:"HOME",link:"/"},
+        
      
     ];
    const [open,setOpen]=useState(false);

@@ -3,6 +3,8 @@ import { useQuery } from "@apollo/client";
 import CarRow from "./CarRow";
 import { GET_CAR } from "../queries/carQueries";
 import Spinner from "./Sprinner";
+import { FaUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
 function Car() {
   const { loading, error, data } = useQuery(GET_CAR);
   if (loading) return <Spinner />;
@@ -11,6 +13,21 @@ function Car() {
 
   return (
     <div>
+         <button
+
+        type="button"
+        class="border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline"
+      >
+     
+          <a href="/addcar">
+            <FaUser className='icon' />
+          <div>Add  Car</div>
+            </a>
+           
+            
+     
+       
+      </button>
       {!loading && !error && (
         <table class="table-auto  items-center">
           <thead class="text-xs font-semibold uppercase text-gray-800 bg-red-100">

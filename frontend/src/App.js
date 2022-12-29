@@ -1,6 +1,7 @@
 import Car from './components/Car'
 import Navbar from './components/Navbar';
 import AddCar from './components/AddCar';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {
   ApolloProvider,
   ApolloClient, 
@@ -32,7 +33,13 @@ function App() {
    <div className="container items-center">
     <AddCar/>
   <Car/>
-
+  <Router>
+         
+            <Routes>
+              <Route path='/addcar' element={<AddCar/>} />
+            </Routes>
+        
+        </Router>
 </div>
 </ApolloProvider>
   </>
