@@ -1,50 +1,37 @@
-import React from 'react'
+import { useMutation } from "@apollo/client";
+import { DELETE_CAR } from "../mutations/carMutation";
+import { GET_CAR } from "../queries/carQueries";
+export default function CarRow({ car }) {
+  const [deleteCar] = useMutation(DELETE_CAR, {
+    variables: { id: car.id },
+    // refetchQueries: [{ query: GET_CAR }],
+    update(cache) {
+      const data = cache.readQuery({ query: GET_CAR });
+      console.log(data);
+      cache.writeQuery({
+        query: GET_CAR,
+        data: {
+          bmws: data.bmws.filter((car) => car.id !== car.id),
+        },
+      });
+    }
+  });
 
-import {FaTrash} from 'react-icons/fa'
-
-function CarRow({car}) {
   return (
-    <div>
-<tr>
-                            <td class="p-2">
-                                <input type="checkbox" class="w-5 h-5" value="id-1" />
-                            </td>
-                            <td class="p-2">
-                                <div class="font-medium text-gray-800">
-                                    {car.Brand_name}
-                                </div>
-                            </td>
-                            <td class="p-2">
-                                <div class="text-left">{car.IPR}</div>
-                            </td>
-                            <td class="p-2">
-                                <div class="text-left font-medium text-green-500">
-                                    {car.Designation}
-                                </div>
-                            </td>
-                            <td class="p-2">
-                                <div class="text-center">{car.Status}</div>
-                            </td>
-                            <td class="p-2">
-                                <div class="text-center">{car.Number}</div>
-                            </td>
-                            <td class="p-2">
-                                <div class="text-center">{car.Office}</div>
-                            </td>
-                            <td class="p-2">
-                                <div class="text-center">{car.Nice_classification}</div>
-                            </td>
-                            <td class="p-2">
-                                <div class="text-center">{car.Owner}</div>
-                            </td>
-                           </tr>
-                           <td>
-                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                    <FaTrash/>
-                                    </button>
-                           </td>
-    </div>
-  )
+    <tr>
+      {/* <td>{car.id}</td> */}
+      <td>{car.Brand_name}</td>
+      <td>{car.IPR}</td>
+      <td>{car.Designation}</td>
+      <td>{car.Status}</td>
+      <td>{car.Number}</td>
+      <td>{car.Office}</td>
+      <td>{car.Nice_classification}</td>
+      <td>{car.Owner}</td>
+      <td>
+        <button className="
+        bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" onClick={deleteCar}>Delete</button>
+      </td>
+    </tr>
+  );
 }
-
-export default CarRow
