@@ -1,4 +1,4 @@
-import Bmw from './components/Bmw'
+import Car from './components/Car'
 import Navbar from './components/Navbar';
 import {
   ApolloProvider,
@@ -6,7 +6,7 @@ import {
   InMemoryCache,
 } from '@apollo/client';
 const car=new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: 'http://localhost:5000/graphql',
   cache: new InMemoryCache()
 })
 
@@ -14,9 +14,9 @@ function App() {
   return (
     < >
     <ApolloProvider client={car}>
-    <Navbar/>
+    {/* <Navbar/> */}
    <div className="container">
-  <Bmw/>
+  <Car/>
 
 </div>
 </ApolloProvider>

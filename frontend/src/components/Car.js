@@ -2,7 +2,7 @@ import React from 'react'
 import {gql,useQuery} from '@apollo/client'
 import CarRow from './CarRow'
 const GET_CAR=gql`
-query getClients{
+query getCar{
     bmws{
         Brand_name
         IPR
@@ -14,7 +14,7 @@ query getClients{
         Owner
         }
         }`
-function Bmw() {
+function Car() {
     const {loading,error,data}=useQuery(GET_CAR)
     if(loading) return <p>Loading...</p>
     if(error) return <p>Error</p>
@@ -60,9 +60,9 @@ Designation</div>
                     </tr>
                 </thead>
                 <tbody class="text-sm divide-y divide-gray-100">
-                    {/* {data.bmws.map((car)=>(
+                    {data.bmws.map((car)=>(
                         <CarRow car={car}/>
-                    ))} */}
+                    ))}
                     
                     
                 </tbody>
@@ -75,4 +75,4 @@ Designation</div>
   )
 }
 
-export default Bmw
+export default Car
