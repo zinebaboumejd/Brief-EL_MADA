@@ -38,6 +38,7 @@ const RootQuery = new GraphQLObjectType({
         return Bmw.find({});
       },
     },
+    
     bmw: {
       type: BmwType,
       args: { id: { type: GraphQLID } },

@@ -28,7 +28,6 @@ console.log(newdata)
  
   const onSubmit = (e) => {
     e.preventDefault();
-    
     addCar({
       variables: {
         Brand_name: data.Brand_name,
@@ -41,7 +40,7 @@ console.log(newdata)
         Status: data.Status,
       },
     });
-  
+<Navigate to="/" />
   };
 
   
@@ -49,7 +48,7 @@ console.log(newdata)
   return (
     <div>
 <div className="mx-auto w-full max-w-[550px] pt-24">
-    <form  method="POST" onSubmit={(e)=>onSubmit(e)}>
+    <form  method="POST"  onSubmit={(e)=>onSubmit(e)}>
     
       <div className="mb-3">
         <label

@@ -1,6 +1,7 @@
 import Car from './components/Car'
 import Navbar from './components/Navbar';
 import AddCar from './components/AddCar';
+import Updatecar from './components/Updatecar';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import {
   ApolloProvider,
@@ -35,6 +36,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Car />} />
             <Route path="/add" element={<AddCar />} />
+            <Route path="/update/:id" element={<Updatecar />} />
           </Routes>
         </Router>
       </ApolloProvider>
