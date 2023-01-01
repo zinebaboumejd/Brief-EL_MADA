@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 
 const Navbar = () => {
     let Links =[
-        {name:"HOME",link:"/"},
+        {name:"CAR",link:"/"},
+        {name:"ADDCAR",link:"/add"}
         
      
     ];

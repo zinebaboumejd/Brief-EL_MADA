@@ -28,20 +28,17 @@ const car=new ApolloClient({
 function App() {
   return (
     < >
-    <ApolloProvider client={car}>
-    {/* <Navbar/> */}
-   <div className="container items-center">
-    <AddCar/>
-  <Car/>
-  <Router>
-         
-            <Routes>
-              <Route path='/addcar' element={<AddCar/>} />
-            </Routes>
-        
+    <div className="container mx-auto  m-2"></div>
+      <ApolloProvider client={car}>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Car />} />
+            <Route path="/add" element={<AddCar />} />
+          </Routes>
         </Router>
-</div>
-</ApolloProvider>
+      </ApolloProvider>
+      
   </>
   );
 }
